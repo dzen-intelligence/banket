@@ -111,27 +111,28 @@
 </script>
 
 <!-- Bootstrap JS bundle - Bootstrap + PopperJS-->
-<script src={{ url()->asset('/template/d19m59y37dris4.cloudfront.net/directory/1-1/vendor/bootstrap/js/bootstrap.bundle.min.js') }}></script>
+<script src={{ url()->asset('/d19m59y37dris4.cloudfront.net/directory/1-1/vendor/bootstrap/js/bootstrap.bundle.min.js') }}></script>
 <!-- Magnific Popup - Lightbox for the gallery-->
-<script src={{ url()->asset('/template/d19m59y37dris4.cloudfront.net/directory/1-1/vendor/magnific-popup/jquery.magnific-popup.min.js') }}></script>
+<script src={{ url()->asset('/d19m59y37dris4.cloudfront.net/directory/1-1/vendor/magnific-popup/jquery.magnific-popup.min.js') }}></script>
 <!-- Smooth scroll-->
-<script src={{ url()->asset('/template/d19m59y37dris4.cloudfront.net/directory/1-1/vendor/smooth-scroll/smooth-scroll.polyfills.min.js') }}></script>
+<script src={{ url()->asset('/d19m59y37dris4.cloudfront.net/directory/1-1/vendor/smooth-scroll/smooth-scroll.polyfills.min.js') }}></script>
 <!-- Bootstrap Select-->
-<script src={{ url()->asset('/template/d19m59y37dris4.cloudfront.net/directory/1-1/vendor/bootstrap-select/js/bootstrap-select.min.js') }}></script>
+<script src={{ url()->asset('/d19m59y37dris4.cloudfront.net/directory/1-1/vendor/bootstrap-select/js/bootstrap-select.min.js') }}></script>
 <!-- Object Fit Images - Fallback for browsers that don't support object-fit-->
-<script src={{ url()->asset('/template/d19m59y37dris4.cloudfront.net/directory/1-1/vendor/object-fit-images/ofi.min.js') }}></script>
+<script src={{ url()->asset('/d19m59y37dris4.cloudfront.net/directory/1-1/vendor/object-fit-images/ofi.min.js') }}></script>
 <!-- Swiper Carousel                       -->
-<script src={{ url()->asset('/template/cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js') }}></script>
+<script src={{ url()->asset('/cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js') }}></script>
 <script>var basePath = ''</script>
 <!-- Main Theme JS file    -->
-<script src={{ url()->asset('/template/js/theme.js') }}></script>
-<script src={{ url()->asset('/template/unpkg.com/leaflet1.3.4/dist/leaflet.js') }}></script>
-<script src={{ url()->asset('/template/js/map-detail.js') }}></script>
+<script src={{ url()->asset('/js/theme.js') }}></script>
+<script src={{ url()->asset('/unpkg.com/leaflet1.3.4/dist/leaflet.js') }}></script>
+<script src={{ url()->asset('/js/map-detail.js') }}></script>
 
 <!-- Dropzone.js-->
-<script src={{ url()->asset('/template/d19m59y37dris4.cloudfront.net/directory/1-1/vendor/dropzone/dropzone.js') }}></script>
+<script src={{ url()->asset('/d19m59y37dris4.cloudfront.net/directory/1-1/vendor/dropzone/dropzone.js') }}></script>
 <!-- Dropzone Init-->
-<script src={{ url()->asset('/template/js/forms-dropzone.js') }}></script>
+<script src={{ url()->asset('/js/forms-dropzone.js') }}></script>
+<script src="{{ url()->asset('/js/app.js') }}"></script>
 
 </body>
 </html>

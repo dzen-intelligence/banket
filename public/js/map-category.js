@@ -3,9 +3,10 @@
 function createListingsMap(options) {
 
     var defaults = {
-        markerPath: 'img/marker.svg',
-        markerPathHighlight: 'img/marker-hover.svg',
-        imgBasePath: 'img/photo/',
+        markerPath: '/img/marker-icon.png',
+        markerPathHighlight: 'img/marker-hover-icon.png',
+        // imgBasePath: 'img/photo/',
+        imgBasePath: '',
         mapPopupType: 'venue',
         useTextIcon: false
     }
@@ -31,7 +32,6 @@ function createListingsMap(options) {
         scrollWheelZoom: false,
         dragging: dragging,
         tap: tap,
-        scrollWheelZoom: false
     });
 
     map.once('focus', function () {
@@ -52,6 +52,7 @@ function createListingsMap(options) {
     */
 
     $.getJSON(settings.jsonFile).done(function (json) {
+
             L.geoJSON(json, {
                 pointToLayer: pointToLayer,
                 onEachFeature: onEachFeature
@@ -66,6 +67,10 @@ function createListingsMap(options) {
         .fail(function (jqxhr, textStatus, error) {
             console.log(error);
         });
+
+    // Получение данных объектов проекта
+
+    // Конец кастомной функции
 
     /* 
     ====================================================

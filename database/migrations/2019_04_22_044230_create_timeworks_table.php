@@ -23,10 +23,10 @@ class CreateTimeworksTable extends Migration
             $table->string('saturday', 14)->nullable();
             $table->string('sunday', 14)->nullable();
 
-            $table->unsignedBigInteger('halls_id');
+            $table->unsignedBigInteger('hall_id');
             // TODO://  нет timestamps, в модели надо написать $timestamps = false;
 
-            $table->foreign('halls_id')->references('id')->on('halls')->onDelete('cascade');
+            $table->foreign('hall_id')->references('id')->on('halls')->onDelete('cascade');
         });
     }
 

@@ -22,12 +22,22 @@ class Halls extends Model
 
     public function types()
     {
-        return $this->hasOne(Types::class, 'id');
+        return $this->hasOne(Types::class, 'id', 'type_id');
     }
 
     public function additions()
     {
         return $this->belongsToMany(Addition::class, 'addition_hall', 'hall_id');
+    }
+
+    public function contacts()
+    {
+        return $this->hasOne(Contacts::class, 'id');
+    }
+
+    public function timeworks()
+    {
+        return $this->hasOne(Timeworks::class, 'id');
     }
 
 }

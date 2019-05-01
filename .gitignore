@@ -4,7 +4,8 @@
 /public/storage
 /storage/*.key
 /vendor
-
+.editorconfig
+.idea
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml

@@ -4,10 +4,10 @@ function createDetailMap(options) {
     var defaults = {
         mapId: 'detailMap',
         mapZoom: 16,
-        mapCenter: [51.505, -0.09],
+        mapCenter: [55.78529, 49.12509],
         markerShow: true,
-        markerPosition: [51.505, -0.09],
-        markerPath: 'img/marker.svg',
+        markerPosition: [55.78529, 49.12509],
+        markerPath: 'img/marker.png',
         circleShow: false,
         circleColour: '#4E66F8',
         circleFill: '#8798fa',

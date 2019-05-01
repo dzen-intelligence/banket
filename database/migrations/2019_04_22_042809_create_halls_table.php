@@ -21,12 +21,12 @@ class CreateHallsTable extends Migration
 //            $table->unsignedBigInteger('restaurateur_id');
             $table->unsignedBigInteger('type_id');
             $table->unsignedBigInteger('instituion_id');
-            $table->decimal('price_per_person', 10, 2);
+            $table->decimal('price_per_person', 10, 0);
             $table->integer('persons_count');
-//            $table->string('address', 150);
-//            $table->string('state', 30);
-//            $table->double('longitude');
-//            $table->double('latitude');
+            $table->string('address', 150);
+            $table->string('state', 30);
+            $table->double('longitude');
+            $table->double('latitude');
             $table->timestamps();
 
 //            $table->foreign('restaurateur_id')->references('id')->on('users')->onDelete('cascade');

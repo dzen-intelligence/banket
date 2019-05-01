@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group mb-4">
                             <div class="custom-control custom-checkbox">
-                                <input  type="checkbox" class="custom-control-input" name="remember">
+                                <input  type="checkbox" class="custom-control-input" id="loginRemember" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                 <label for="loginRemember" class="custom-control-label text-muted"> <span
                                             class="text-sm">Запомнить пароль на 30 дней</span></label>
                             </div>
