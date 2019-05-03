@@ -16,8 +16,9 @@
     <section class="py-5">
         <div class="container">
             <p class="subtitle text-primary">Добавление заведения</p>
-            <h1 class="h2 mb-5"> Основная информация <span class="text-muted float-right">Шаг 1</span></h1>
-            <form>
+            <h1 class="h2 mb-5">Основная информация <span class="text-muted float-right">Шаг 1</span></h1>
+            <form method="post" action="{{ route('accommodate.post_step2') }}">
+                {{ csrf_field() }}
                 <div class="row form-block">
                     <div class="col-lg-4">
                         <h4>Контакты</h4>
@@ -27,7 +28,7 @@
                         <div class="form-group"></div>
                         <div class="form-group">
                             <label for="form_name" class="form-label">Как вас зовут?</label>
-                            <input name="name" id="form_name" class="form-control">
+                            <input name="username" id="form_name" class="form-control">
 
                         </div>
                         <div class="form-group">
@@ -45,7 +46,8 @@
                                 телефоне!</label>
 
                             <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                                <input type="checkbox" class="custom-control-input" id="customControlInline">
+                                <input type="checkbox" name="is_telegram" value="true" class="custom-control-input"
+                                       id="customControlInline">
                                 <label class="custom-control-label" for="customControlInline">У меня есть
                                     telegramm-клиент на телефоне</label>
                             </div>
@@ -77,10 +79,10 @@
 
                         <div class="form-group">
                             <label for="form_type" class="form-label">Тип заведения</label>
-                            <select name="type" id="form_type" data-style="btn-selectpicker" title=""
+                            <select name="hall_type" id="form_type" data-style="btn-selectpicker"
                                     aria-describedby="propertyTypeHelp" class="selectpicker form-control">
                                 @foreach($types as $type)
-                                    <option value="{{ $type->id  }}">{{ $type->name }}</option>
+                                    <option value="{{ $type->id }}">{{ $type->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -88,7 +90,7 @@
 
                         <div class="form-group">
                             <label for="form_type" class="form-label">Выберите район</label>
-                            <select name="type" id="form_type" data-style="btn-selectpicker" title=""
+                            <select name="state" id="form_type" data-style="btn-selectpicker" title=""
                                     aria-describedby="propertyTypeHelp" class="selectpicker form-control">
                                 @foreach($cities as $state)
                                 <option value="{{ $state->state }}">{{ $state->state }}</option>
@@ -100,7 +102,7 @@
                         <!-- Street-->
                         <div class="form-group">
                             <label for="banket_name" class="form-label">Адрес заведения</label>
-                            <input name="banket_name" id="banket_name" class="form-control">
+                            <input name="hall_address" id="banket_name" class="form-control">
                             <small id="propertyTypeHelp" class="form-text text-muted">Введите полный адрес вашего
                                 заведения!
                             </small>
@@ -114,10 +116,26 @@
                 </div>
 
                 <div class="row form-block flex-column flex-sm-row">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </div>
+
+                <div class="row form-block flex-column flex-sm-row">
                     <div class="col text-center text-sm-left">
                     </div>
-                    <div class="col text-center text-sm-right"><a href="{{ route('accommodate.step2') }}" class="btn btn-primary px-3">Далее<i
-                                    class="fa-chevron-right fa ml-2"></i></a></div>
+                    <div class="col text-center text-sm-right">
+{{--                        <a href="{{ route('accommodate.step2') }}" class="btn btn-primary px-3">Далее<i--}}
+{{--                                    class="fa-chevron-right fa ml-2"></i></a>--}}
+                        <button type="submit" class="btn btn-primary px-3">Далее <i
+                                class="fa-chevron-right fa ml-2"></i></button>
+                    </div>
                 </div>
             </form>
         </div>

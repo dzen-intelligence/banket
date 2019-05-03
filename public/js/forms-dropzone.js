@@ -5,7 +5,7 @@ Dropzone.options.demoUpload = false;
 // I use it here just to avoid auto-init for the demo element, you don't have to use this approach in your app
 
 $(function () {
-    var dropzone = new Dropzone('#demo-upload', {
+    var dropzone = new Dropzone('#hall_upload', {
         
         parallelUploads: 2,
         thumbnailHeight: 120,

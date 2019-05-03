@@ -53,7 +53,7 @@
             </div>
             <div class="col-md-4 col-lg-6 col-xl-7 d-none d-md-block">
                 <!-- Image-->
-                <div style="background-image: url({{ url()->asset('/template/d19m59y37dris4.cloudfront.net/directory/1-1/img/photo/photo-1497436072909-60f360e1d4b1.jpg')  }});"
+                <div style="background-image: url({{ url()->asset('/d19m59y37dris4.cloudfront.net/directory/1-1/img/photo/photo-1497436072909-60f360e1d4b1.jpg')  }});"
                      class="bg-cover h-100 mr-n3"></div>
             </div>
         </div>

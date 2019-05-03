@@ -63,7 +63,7 @@ class HallController extends Controller
                         'image' => $list_hall->preview_image,
                         'link' => url('/hall/' . $list_hall->id),
                         'name' => $list_hall->title,
-                        'category' => $list_hall->types->name,
+                        'category' => $list_hall->types['name'],
                         'stars' => 4,
                         'email' => $list_hall->contacts['email'],
                         'phone' => $list_hall->contacts['phone'],

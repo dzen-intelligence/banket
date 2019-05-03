@@ -10,7 +10,7 @@
         <div class="container overlay-content">
             <div class="d-flex justify-content-between align-items-start flex-column flex-lg-row align-items-lg-end">
                 <div class="text-white mb-4 mb-lg-0">
-                    <div class="badge badge-pill badge-transparent px-3 py-2 mb-4">{{ $hall->types->name  }}</div>
+                    <div class="badge badge-pill badge-transparent px-3 py-2 mb-4">{{ $hall->types['name']  }}</div>
                     <h1 class="text-shadow verified">{{ $hall->title }}</h1>
                     <p><i class="fa-map-marker-alt fas mr-2"></i>{{ $hall->state  }}</p>
                     <p class="mb-0 d-flex align-items-center"><i class="fa fa-xs fa-star text-primary"></i><i

@@ -20,8 +20,7 @@ class CreateHallContactsTable extends Migration
             $table->string('site', 30)->nullable();
             $table->string('vkontakte', 30)->nullable();
             $table->string('instagram', 30)->nullable();
-            $table->boolean('has_telegram')->default(false)->nullable();
-            $table->boolean('has_whatsapp')->default(false)->nullable();
+            $table->boolean('whatsapp')->default(false)->nullable();
             // TODO://  нет timestamps, в модели надо написать $timestamps = false;
             $table->unsignedBigInteger('hall_id');
             $table->foreign('hall_id')->references('id')->on('halls')->onDelete('cascade');

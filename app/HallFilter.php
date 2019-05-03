@@ -65,7 +65,7 @@ class HallFilter
 
     public function halltype($value)
     {
-        if(is_array($value)) {
+        if(isset($value)) {
             $this->builder->whereIn('type_id', $value);
         }
     }

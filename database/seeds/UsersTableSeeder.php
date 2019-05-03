@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
         $this->createTestAccount();
 
         // Фабрики
-        factory(App\User::class, 50)->create();
+        factory(App\User::class, 10)->create();
     }
 
     private function createTestAccount() {

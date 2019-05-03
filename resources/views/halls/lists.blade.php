@@ -11,10 +11,11 @@
     $cities = DB::table('halls')->distinct()->select('state')->get();
     $meta = DB::select("SELECT MIN(price_per_person) AS min_price_person, MAX(price_per_person) AS max_price_person, MIN(persons_count) AS min_persons, MAX(persons_count) AS max_persons FROM halls");
 
-    $min_per_person;
-    $max_per_person;
-    $min_persons;
-    $max_persons;
+
+    $min_per_person = null;
+    $max_per_person = null;
+    $min_persons = null;
+    $max_persons = null;
 
     foreach ($meta as $m) {
         $min_per_person = $m->min_price_person;
@@ -32,6 +33,7 @@
                 <hr class="my-4">
 
                 <form action="/" method="get">
+
                     <div class="row">
                         <div class="col-xl-4 col-md-6 mb-4">
                             <label for="form_search" class="form-label">Поиск по названию</label>

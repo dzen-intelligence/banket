@@ -1,6 +1,13 @@
 @extends('base')
 
 @section('content')
+    <?php
+    use Illuminate\Support\Facades\DB;
+
+    $additions_n = DB::table('additions')->get();
+
+    ?>
+
 
     <div style="height: 8px; top: 71px;" class="progress rounded-0 sticky-top">
         <div role="progressbar" style="width: 40%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
@@ -9,9 +16,9 @@
 
     <section class="py-5">
         <div class="container">
-            <p class="subtitle text-primary">Описание завдения</p>
-            <h1 class="h2 mb-5"> Дополнительная информация по заведению <span
-                        class="text-muted float-right">Шаг 2</span></h1>
+            <p class="subtitle text-primary">Описание заведения</p>
+            <h1 class="h2 mb-5">Дополнительная информация по заведению <span
+                    class="text-muted float-right">Шаг 2</span></h1>
             <form>
                 <div class="row form-block">
                     <div class="col-lg-4">
@@ -58,122 +65,16 @@
                         <div class="form-group">
                             <label class="form-label">Возможности</label>
                             <ul class="list-inline mb-0">
-                                <li class="list-inline-item">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" id="amenities_0" name="amenities[]"
-                                               class="custom-control-input">
-                                        <label for="amenities_0"
-                                               class="custom-control-label text-muted">Kitchen </label>
-                                    </div>
-                                </li>
-                                <li class="list-inline-item">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" id="amenities_1" name="amenities[]"
-                                               class="custom-control-input">
-                                        <label for="amenities_1"
-                                               class="custom-control-label text-muted">Shampoo </label>
-                                    </div>
-                                </li>
-                                <li class="list-inline-item">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" id="amenities_2" name="amenities[]"
-                                               class="custom-control-input">
-                                        <label for="amenities_2"
-                                               class="custom-control-label text-muted">Heating </label>
-                                    </div>
-                                </li>
-                                <li class="list-inline-item">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" id="amenities_3" name="amenities[]"
-                                               class="custom-control-input">
-                                        <label for="amenities_3" class="custom-control-label text-muted">Air
-                                            conditioning </label>
-                                    </div>
-                                </li>
-                                <li class="list-inline-item">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" id="amenities_4" name="amenities[]"
-                                               class="custom-control-input">
-                                        <label for="amenities_4" class="custom-control-label text-muted">Washer </label>
-                                    </div>
-                                </li>
-                                <li class="list-inline-item">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" id="amenities_5" name="amenities[]"
-                                               class="custom-control-input">
-                                        <label for="amenities_5" class="custom-control-label text-muted">Dryer </label>
-                                    </div>
-                                </li>
-                                <li class="list-inline-item">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" id="amenities_6" name="amenities[]"
-                                               class="custom-control-input">
-                                        <label for="amenities_6" class="custom-control-label text-muted">Wifi </label>
-                                    </div>
-                                </li>
-                                <li class="list-inline-item">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" id="amenities_7" name="amenities[]"
-                                               class="custom-control-input">
-                                        <label for="amenities_7"
-                                               class="custom-control-label text-muted">Breakfast </label>
-                                    </div>
-                                </li>
-                                <li class="list-inline-item">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" id="amenities_8" name="amenities[]"
-                                               class="custom-control-input">
-                                        <label for="amenities_8" class="custom-control-label text-muted">Indoor
-                                            fireplace </label>
-                                    </div>
-                                </li>
-                                <li class="list-inline-item">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" id="amenities_9" name="amenities[]"
-                                               class="custom-control-input">
-                                        <label for="amenities_9" class="custom-control-label text-muted">Buzzer/wireless
-                                            intercom </label>
-                                    </div>
-                                </li>
-                                <li class="list-inline-item">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" id="amenities_10" name="amenities[]"
-                                               class="custom-control-input">
-                                        <label for="amenities_10"
-                                               class="custom-control-label text-muted">Doorman </label>
-                                    </div>
-                                </li>
-                                <li class="list-inline-item">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" id="amenities_11" name="amenities[]"
-                                               class="custom-control-input">
-                                        <label for="amenities_11"
-                                               class="custom-control-label text-muted">Hangers </label>
-                                    </div>
-                                </li>
-                                <li class="list-inline-item">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" id="amenities_12" name="amenities[]"
-                                               class="custom-control-input">
-                                        <label for="amenities_12" class="custom-control-label text-muted">Iron </label>
-                                    </div>
-                                </li>
-                                <li class="list-inline-item">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" id="amenities_13" name="amenities[]"
-                                               class="custom-control-input">
-                                        <label for="amenities_13" class="custom-control-label text-muted">Hair
-                                            dryer </label>
-                                    </div>
-                                </li>
-                                <li class="list-inline-item">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" id="amenities_14" name="amenities[]"
-                                               class="custom-control-input">
-                                        <label for="amenities_14" class="custom-control-label text-muted">Laptop
-                                            friendly workspace </label>
-                                    </div>
-                                </li>
+                                @foreach($additions_n as $addition)
+                                    <li class="list-inline-item">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" id="amenities_{{ $addition->id }}" name="additions[]"
+                                                   class="custom-control-input" value="{{ $addition->id }}">
+                                            <label for="amenities_{{ $addition->id }}"
+                                                   class="custom-control-label text-muted">{{ $addition->name }} </label>
+                                        </div>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -214,7 +115,6 @@
                             <form id="demo-upload" action="https://demo.bootstrapious.com/upload" class="dropzone">
                                 <div class="dz-message text-muted">
                                     <p>Перетащите фотографии в эту зону или выберите из файлового архива</p>
-
                                 </div>
                             </form>
                         </div>
@@ -251,7 +151,6 @@
                             <form id="demo-upload" action="https://demo.bootstrapious.com/upload" class="dropzone">
                                 <div class="dz-message text-muted">
                                     <p>Перетащите фотографии в эту зону или выберите из файлового архива</p>
-
                                 </div>
                             </form>
                         </div>
@@ -275,12 +174,11 @@
                     </div>
                 </div>
 
-
                 <div class="row form-block flex-column flex-sm-row">
                     <div class="col text-center text-sm-left">
                     </div>
-                    <div class="col text-center text-sm-right"><a href="{{ route('accommodate.step3') }}" class="btn btn-primary px-3">
-
+                    <div class="col text-center text-sm-right"><a href="{{ route('accommodate.step3') }}"
+                                                                  class="btn btn-primary px-3">
                             Далее<i class="fa-chevron-right fa ml-2"></i></a></div>
                 </div>
             </form>
