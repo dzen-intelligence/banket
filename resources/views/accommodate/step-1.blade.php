@@ -22,7 +22,8 @@
                 <div class="row form-block">
                     <div class="col-lg-4">
                         <h4>Контакты</h4>
-                        <p class="text-muted text-sm">Контактные данные для входа в личный кабинет и полулчения новых заявок.</p>
+                        <p class="text-muted text-sm">Контактные данные для входа в личный кабинет и полулчения новых
+                            заявок.</p>
                     </div>
                     <div class="col-lg-7 ml-auto">
                         <div class="form-group"></div>
@@ -93,7 +94,7 @@
                             <select name="state" id="form_type" data-style="btn-selectpicker" title=""
                                     aria-describedby="propertyTypeHelp" class="selectpicker form-control">
                                 @foreach($cities as $state)
-                                <option value="{{ $state->state }}">{{ $state->state }}</option>
+                                    <option value="{{ $state->state }}">{{ $state->state }}</option>
                                 @endforeach
                             </select>
 
@@ -115,8 +116,9 @@
                     </div>
                 </div>
 
-                <div class="row form-block flex-column flex-sm-row">
-                    @if ($errors->any())
+
+                @if ($errors->any())
+                    <div class="row form-block flex-column flex-sm-row">
                         <div class="alert alert-danger">
                             <ul>
                                 @foreach ($errors->all() as $error)
@@ -124,17 +126,18 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif
-                </div>
+                    </div>
+                @endif
+
 
                 <div class="row form-block flex-column flex-sm-row">
                     <div class="col text-center text-sm-left">
                     </div>
                     <div class="col text-center text-sm-right">
-{{--                        <a href="{{ route('accommodate.step2') }}" class="btn btn-primary px-3">Далее<i--}}
-{{--                                    class="fa-chevron-right fa ml-2"></i></a>--}}
+                        {{--                        <a href="{{ route('accommodate.step2') }}" class="btn btn-primary px-3">Далее<i--}}
+                        {{--                                    class="fa-chevron-right fa ml-2"></i></a>--}}
                         <button type="submit" class="btn btn-primary px-3">Далее <i
-                                class="fa-chevron-right fa ml-2"></i></button>
+                                    class="fa-chevron-right fa ml-2"></i></button>
                     </div>
                 </div>
             </form>

@@ -18,7 +18,7 @@
         <div class="container">
             <p class="subtitle text-primary">Описание заведения</p>
             <h1 class="h2 mb-5">Дополнительная информация по заведению <span
-                    class="text-muted float-right">Шаг 2</span></h1>
+                        class="text-muted float-right">Шаг 2</span></h1>
             <form>
                 <div class="row form-block">
                     <div class="col-lg-4">
@@ -173,6 +173,20 @@
                         </div>
                     </div>
                 </div>
+
+
+                @if ($errors->any())
+                    <div class="row form-block flex-column flex-sm-row">
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                @endif
+
 
                 <div class="row form-block flex-column flex-sm-row">
                     <div class="col text-center text-sm-left">

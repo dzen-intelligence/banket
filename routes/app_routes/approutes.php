@@ -22,11 +22,14 @@ Route::name('accommodate.')->group(function () {
     Route::get('step2', 'AccommodateController@step2')->name('step2');
     Route::get('step3', 'AccommodateController@step3')->name('step3');
     Route::get('step4', 'AccommodateController@step4')->name('step4');
+    Route::get('step5', 'AccommodateController@step5')->name('step5');
+    Route::get('thanks', 'AccommodateController@thanks')->name('thanks');
 
     // Роуты для обработки пошаговых данных
     Route::post('next_step2', 'AccommodateController@postStep2')->name('post_step2');
     Route::post('next_step3', 'AccommodateController@postStep3')->name('post_step3');
     Route::post('next_step4', 'AccommodateController@postStep4')->name('post_step4');
+    Route::post('next_step5', 'AccommodateController@postStep5')->name('post_step5');
 
 
 });
