@@ -30,7 +30,6 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
     <!-- jQuery-->
     <script src='/d19m59y37dris4.cloudfront.net/directory/1-1/vendor/jquery/jquery.min.js'></script>
-    <script src="{{ url()->asset('/js/vue.min.js') }}"></script>
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href='/use.fontawesome.com/releases/v5.1.0/css/solid.css' >
     <link rel="stylesheet" href='/use.fontawesome.com/releases/v5.1.0/css/regular.css'>

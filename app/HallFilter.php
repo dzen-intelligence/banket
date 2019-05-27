@@ -4,6 +4,8 @@
 namespace App;
 
 
+use Illuminate\Support\Facades\Input;
+
 class HallFilter
 {
     private $builder;
@@ -56,6 +58,8 @@ class HallFilter
 
     public function state($value)
     {
+        json_decode($value);
+
         if(is_array($value))
         {
             $states = implode('|', $value);

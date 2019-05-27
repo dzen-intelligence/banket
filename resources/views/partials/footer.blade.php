@@ -132,6 +132,8 @@
 <script src={{ url()->asset('/d19m59y37dris4.cloudfront.net/directory/1-1/vendor/dropzone/dropzone.js') }}></script>
 <!-- Dropzone Init-->
 {{--<script src={{ url()->asset('/js/forms-dropzone.js') }}></script>--}}
+<script src="{{ url()->asset('/js/vue.min.js') }}"></script>
+<script src="{{ url()->asset('/js/axios.min.js') }}"></script>
 <script src="{{ url()->asset('/js/app.js') }}"></script>
 
 </body>

@@ -21,7 +21,7 @@ function createListingsMap(options) {
         tap = true;
     }
 
-    /* 
+    /*
     ====================================================
       Create and center the base map
     ====================================================

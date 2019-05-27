@@ -1,10 +1,13 @@
 <?php
 
 
+Route::post('/', 'HallController@filter');
+
 //Route::get('/hall', 'HallController@lists')->name('halls');
 Route::get('/hall/{hallid}', 'HallController@detail')->name('detail');
 
 Route::get('/halls/mapdata', 'HallController@mapHalls');
+
 
 // Account routes
 Route::get('/account', function () {

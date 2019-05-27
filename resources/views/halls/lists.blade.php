@@ -32,20 +32,22 @@
                 <h1 class="text-serif mb-4">Банкетные залы, Казань</h1>
                 <hr class="my-4">
 
-                <form action="/" method="get">
+                <form>
 
                     <div class="row">
                         <div class="col-xl-4 col-md-6 mb-4">
                             <label for="form_search" class="form-label">Поиск по названию</label>
                             <div class="input-label-absolute input-label-absolute-right">
                                 <div class="label-absolute"><i class="fa fa-search"></i></div>
-                                <input type="search" name="search" placeholder="Например, Небеса" id="form_search"
+                                <input type="search" name="search" v-model="search" @change="submitForm"
+                                       placeholder="Например, Небеса" id="form_search"
                                        class="form-control pr-4">
                             </div>
                         </div>
                         <div class="col-xl-4 col-md-6 mb-4">
                             <label for="form_neighbourhood" class="form-label">Район</label>
-                            <select name="state[]" id="form_neighbourhood" multiple data-style="btn-selectpicker"
+                            <select name="state" v-model="state" @change="submitForm" id="form_neighbourhood" multiple
+                                    data-style="btn-selectpicker"
                                     data-live-search="true" data-selected-text-format="count &gt; 1" title=""
                                     class="selectpicker form-control">
                                 @foreach($cities->union('state') as $city)
@@ -57,7 +59,8 @@
 
                         <div class="col-xl-4 col-md-6 mb-4">
                             <label for="form_category" class="form-label">Тип заведения</label>
-                            <select name="halltype[]" id="form_category" multiple data-style="btn-selectpicker"
+                            <select name="halltype" v-model="hallType" @change="submitForm" id="form_category" multiple
+                                    data-style="btn-selectpicker"
                                     data-selected-text-format="count &gt; 1" title="" class="selectpicker form-control">
                                 @foreach($halltypes as $halltype)
                                     <option value="{{ $halltype->id }}">{{ $halltype->name }}</option>
@@ -71,7 +74,8 @@
                                 @foreach($additions as $addition)
                                     <li class="list-inline-item">
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" name="addition[]" id="addition_{{ $addition->id }}"
+                                            <input type="checkbox" name="addition" v-model="additions"
+                                                   @change="submitForm" id="addition_{{ $addition->id }}"
                                                    class="custom-control-input" value="{{ $addition->id }}">
                                             <label for="addition_{{ $addition->id }}"
                                                    class="custom-control-label">{{ $addition->name }}</label>
@@ -96,9 +100,11 @@
                                             </div>
                                         </div>
 
-                                        <input type="text" name="person_minprice" class="form-control mb-2 mr-sm-2"
+                                        <input type="text" name="person_minprice" v-model="person_min_price"
+                                               @change="submitForm" class="form-control mb-2 mr-sm-2"
                                                id="slider-snap-perperson-input-from" value="{{ $min_per_person }}"><br>
-                                        <input type="text" name="person_maxprice" class="form-control mb-2 mr-sm-2"
+                                        <input type="text" name="person_maxprice" v-model="person_max_price"
+                                               @change="submitForm" class="form-control mb-2 mr-sm-2"
                                                id="slider-snap-perperson-input-to" value="{{ $max_per_person }}">
                                     </div>
 
@@ -106,7 +112,8 @@
                                         <label class="form-label">Персон</label>
                                         <div id="slider-snap-persons" class="text-primary"></div>
                                         <div class="nouislider-values">
-                                            <div class="min">От <span id="slider-snap-persons-value-from"></span> ₽</div>
+                                            <div class="min">От <span id="slider-snap-persons-value-from"></span> ₽
+                                            </div>
                                             <div class="max">До <span id="slider-snap-persons-value-to"></span> ₽</div>
                                         </div>
                                         <input type="text" name="pricefrom" class="form-control pr-4"
@@ -120,7 +127,8 @@
                             </div>
                         </div>
                         <div class="col-6 mb-4">
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-filter mr-1"></i>Найти
+                            <button type="submit" @click.prevent="submitForm" class="btn btn-primary"><i
+                                        class="fas fa-filter mr-1"></i>Найти
                             </button>
                         </div>
                         <div class="col-6 mb-4 text-right">
@@ -135,7 +143,7 @@
                 <hr class="my-4">
                 <div class="d-flex justify-content-between align-items-center flex-column flex-md-row mb-4">
                     <div class="mr-3">
-                        <p class="mb-3 mb-md-0"><strong>{{ count($halls) }}</strong> заведений найдено</p>
+                        <p class="mb-3 mb-md-0"><strong>${ halls.total > 0 ? halls.total : 0 }</strong> заведений найдено</p>
                     </div>
                     <div>
                         <label for="form_sort" class="form-label mr-2">Сортировать по</label>
@@ -149,61 +157,51 @@
                     </div>
                 </div>
 
-                <div class="row">
 
-                @if(count($halls) > 0)
+                <div class="row" v-if="halls.total > 0">
 
-                    @foreach($halls as $hall)
-                        <!-- venue item-->
-                            <div data-marker-id="59c0c8e33b1527bfe2abaf92" class="col-sm-6 mb-5">
-                                <div class="card h-100 border-0 shadow">
-                                    <div style="background-image: url({{ $hall->preview_image }}); min-height: 200px;"
-                                         class="card-img-top overflow-hidden dark-overlay bg-cover">
-                                        <!--img.img-fluid(src="#{imgBasePath}#{val.image}" alt="#{val.name}")--><a
-                                                href="{{ route('detail', ['hallid' => $hall->id]) }}"
-                                                class="tile-link"></a>
-                                        <div class="card-img-overlay-bottom z-index-20">
-                                            <h4 class="text-white text-shadow">{{ $hall->title }}</h4>
-                                            <p class="mb-2 text-xs"><i class="fa fa-star text-warning"></i><i
-                                                        class="fa fa-star text-warning"></i><i
-                                                        class="fa fa-star text-warning"></i><i
-                                                        class="fa fa-star text-warning"></i><i
-                                                        class="fa fa-star text-gray-300"> </i>
-                                            </p>
-                                        </div>
-                                        <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
+                    <div v-for="hall in halls.data" v-key="hall.id" data-marker-id="59c0c8e33b1527bfe2abaf92" class="col-sm-6 mb-5">
+                        <div class="card h-100 border-0 shadow">
+                            <div v-bind:style="{ 'background-image': 'url(' + hall.preview_image + ')', 'min-height': '200px' }"
+                                 class="card-img-top overflow-hidden dark-overlay bg-cover">
+                                <a href="" class="tile-link"></a>
+                                <div class="card-img-overlay-bottom z-index-20">
+                                    <h4 class="text-white text-shadow">${ hall.title }</h4>
+                                    <p class="mb-2 text-xs"><i class="fa fa-star text-warning"></i><i
+                                                class="fa fa-star text-warning"></i><i
+                                                class="fa fa-star text-warning"></i><i
+                                                class="fa fa-star text-warning"></i><i
+                                                class="fa fa-star text-gray-300"> </i>
+                                    </p>
+                                </div>
+                                <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
 
-                                            <div class="badge badge-transparent badge-pill px-3 py-2">{{ $hall->types['name'] }}</div>
-                                            <a href="javascript:void()"
-                                               class="card-fav-icon position-relative z-index-40">
-                                                <svg class="svg-icon text-white">
-                                                    <use xlink:href="#heart-1"></use>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        {{--                                    <p class="text-sm text-muted mb-3">{{   $hall->description }}</p>--}}
-                                        <p class="text-sm text-muted mb-3">{{ \Illuminate\Support\Str::limit($hall->description, 150)  }}</p>
-                                        <p class="text-sm text-muted text-uppercase mb-1"><a href="#"
-                                                                                             class="text-dark">{{ $hall->state }}</a>
-                                        </p>
-                                        <p class="text-sm mb-0"><a href="#" class="mr-1">{{ $hall->types['name'] }}</a>
-                                        </p>
-                                    </div>
+                                    <div class="badge badge-transparent badge-pill px-3 py-2">${ hall.types.name }</div>
+                                    <a href="javascript:void()"
+                                       class="card-fav-icon position-relative z-index-40">
+                                        <svg class="svg-icon text-white">
+                                            <use xlink:href="#heart-1"></use>
+                                        </svg>
+                                    </a>
                                 </div>
                             </div>
-                        @endforeach
+                            <div class="card-body">
+                                <p class="text-sm text-muted mb-3">${ hall.description | truncate(100)}</p>
+                                <p class="text-sm text-muted text-uppercase mb-1"><a href="#" class="text-dark">${ hall.state}</a>
+                                </p>
+                                <p class="text-sm mb-0"><a href="#" class="mr-1">${ hall.types.name }</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
-                    @else
-                        <h2 class="text-serif mb-4">Заведений не найдено</h2>
-                    @endif
+                </div>
 
-
+                <div v-else>
+                    <h2 class="text-serif mb-4">Заведений не найдено</h2>
                 </div>
                 <!-- Pagination -->
 
-                {{ $halls->links() }}
 
             </div>
             <div class="col-lg-6 map-side-lg pr-lg-0">
@@ -228,7 +226,7 @@
     <!-- Price  Slider-->
     <script src="/d19m59y37dris4.cloudfront.net/directory/1-1/vendor/nouislider/nouislider.min.js"></script>
     <script>
-        {{-- Слайдер сумма за персону--}}
+                {{-- Слайдер сумма за персону--}}
         var snapSlider = document.getElementById('slider-snap-perperson');
 
         noUiSlider.create(snapSlider, {
@@ -241,10 +239,10 @@
                 'max': {{ $max_per_person }}
             },
             format: {
-                to: function(value) {
+                to: function (value) {
                     return parseInt(value);
                 },
-                from: function(value) {
+                from: function (value) {
                     return parseInt(value);
                 }
             }
@@ -276,10 +274,10 @@
                 'max': {{ $max_persons }}
             },
             format: {
-                to: function(value) {
+                to: function (value) {
                     return parseInt(value);
                 },
-                from: function(value) {
+                from: function (value) {
                     return parseInt(value);
                 }
             }
