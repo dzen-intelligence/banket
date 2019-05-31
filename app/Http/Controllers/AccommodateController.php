@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\User;
 
 class AccommodateController extends Controller
 {
@@ -43,6 +44,17 @@ class AccommodateController extends Controller
     {
 //        var_dump($request->all());
 
+//        dd($request->all() );
+
+        $user = User::create([
+            'name' => 'aleksander',
+            'phone' => '1234567891',
+            'password' => \Hash::make('123456'),
+        ]);
+
+
+        return;
+
         $validateStep1 = $request->validate([
             'username' => 'required',
             'phone'  => 'required|numeric',
@@ -52,6 +64,7 @@ class AccommodateController extends Controller
             'hall_address' => 'required',
             'state'  => 'required'
         ]);
+
 
         $this->storeInSession('step1', $validateStep1, $request);
 

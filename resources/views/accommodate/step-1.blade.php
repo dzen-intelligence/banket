@@ -56,12 +56,12 @@
                                 вам установить для дополнительных возможностей!
                             </small>
 
-
                         </div>
 
 
                     </div>
                 </div>
+
                 <div class="row form-block">
                     <div class="col-lg-4">
                         <h4>О заведении</h4>
@@ -101,9 +101,14 @@
                         </div>
 
                         <!-- Street-->
-                        <div class="form-group">
-                            <label for="banket_name" class="form-label">Адрес заведения</label>
-                            <input name="hall_address" id="banket_name" class="form-control">
+                        <div class="form-group" id="input-styling-address">
+                            <label for="hall_address" class="form-label">Адрес заведения</label>
+
+                            <input name="hall_address" id="hall_address" class="form-control">
+                            <input type="hidden" name="lat" id="lat" >
+                            <input type="hidden" name="lon" id="lon" >
+                            <input type="hidden" name="state" id="state" >
+
                             <small id="propertyTypeHelp" class="form-text text-muted">Введите полный адрес вашего
                                 заведения!
                             </small>
@@ -111,7 +116,6 @@
                                 кладр!?
                             </small>
                         </div>
-
 
                     </div>
                 </div>
@@ -144,5 +148,74 @@
         </div>
     </section>
 
+    <style>
+        #input-styling-address input {
+            display: inline-block;
+            border: 1px solid #d9d9d9;
+            width: 100%;
+        }
+
+        #input-styling-address input:focus, #input-styling-address input:active {
+            outline: 0;
+            border-color: #aaaaaa;
+            background: #ffffff;
+        }
+
+        #input-styling-address .ap-nostyle-dropdown-menu {
+            box-shadow: none;
+            border: 1px solid #dadada;
+            border-radius: 0;
+            background: #fff;
+            width: 100%;
+        }
+
+        .ap-dataset-places {
+            font-size: 18px;
+        }
+
+        #input-styling-address .ap-nostyle-input-icon {
+            display: block;
+            position: absolute;
+            background: none;
+            border: none;
+        }
+
+        #input-styling-address .algolia-places-nostyle { width: 50%; }
+        #input-styling-address .ap-nostyle-icon-pin { left: 5px;top: 10px; }
+        #input-styling-address .ap-nostyle-icon-clear { right: 5px;top: 15px }
+        #input-styling-address input:hover { border-color: silver; }
+        #input-styling-address input::placeholder { color: #aaaaaa; }
+        #input-styling-address .ap-nostyle-suggestion { border-bottom: 1px solid #efefef; }
+    </style>
+
+
+    <script src="/js/places.js"></script>
+    <script>
+        (function() {
+
+            var placesAutocomplete = places({
+                appId: 'pl64OO49VB0P',
+                apiKey: '0a9468217ddf68a2b09c7a1f0840ceab',
+                container: document.querySelector('#hall_address'),
+                templates: {
+                    value: function(suggestion) {
+                        return suggestion.name;
+                    }
+                }
+            }).configure({
+                // type: 'city',
+                type: 'address',
+                aroundLatLngViaIP: false,
+            });
+
+            placesAutocomplete.on('change', e => {
+                console.log(e.suggestion);
+                $('#lat').val(e.suggestion.latlng.lat);
+                $('#lon').val(e.suggestion.latlng.lng);
+                $('#state').val(e.suggestion.administrative);
+            });
+
+        })();
+    </script>
 
 @endsection

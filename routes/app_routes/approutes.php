@@ -14,6 +14,9 @@ Route::get('/account', function () {
     return view('home');
 });
 
+// Reponses
+Route::post('/add/response', 'ResponseController@store')->name('add_response');
+
 // Разместиться
 Route::get('/accommodate', function () {
     return view('accommodate.step-0');
@@ -21,6 +24,7 @@ Route::get('/accommodate', function () {
 
 Route::name('accommodate.')->group(function () {
 
+    // TODO:// изменить название путей
     Route::get('step1', 'AccommodateController@step1')->name('step1');
     Route::get('step2', 'AccommodateController@step2')->name('step2');
     Route::get('step3', 'AccommodateController@step3')->name('step3');
@@ -28,7 +32,7 @@ Route::name('accommodate.')->group(function () {
     Route::get('step5', 'AccommodateController@step5')->name('step5');
     Route::get('thanks', 'AccommodateController@thanks')->name('thanks');
 
-    // Роуты для обработки пошаговых данных
+    // Роуты для обработки пошаговых данных POST данные
     Route::post('next_step2', 'AccommodateController@postStep2')->name('post_step2');
     Route::post('next_step3', 'AccommodateController@postStep3')->name('post_step3');
     Route::post('next_step4', 'AccommodateController@postStep4')->name('post_step4');

@@ -40,4 +40,8 @@ class Halls extends Model
         return $this->hasOne(Timeworks::class, 'id');
     }
 
+    public function responses()
+    {
+        return $this->hasMany(Responses::class, 'hall_id', 'id');
+    }
 }

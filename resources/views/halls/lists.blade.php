@@ -164,7 +164,7 @@
                         <div class="card h-100 border-0 shadow">
                             <div v-bind:style="{ 'background-image': 'url(' + hall.preview_image + ')', 'min-height': '200px' }"
                                  class="card-img-top overflow-hidden dark-overlay bg-cover">
-                                <a href="" class="tile-link"></a>
+                                <a v-bind:href="'hall/' + hall.id" class="tile-link"></a>
                                 <div class="card-img-overlay-bottom z-index-20">
                                     <h4 class="text-white text-shadow">${ hall.title }</h4>
                                     <p class="mb-2 text-xs"><i class="fa fa-star text-warning"></i><i

@@ -53,7 +53,7 @@ class HallController extends Controller
     public function detail($hallid)
     {
 //        $hall = Halls::query()->findOrFail($hallid);
-        $hall = Halls::with(['additions', 'contacts', 'timeworks'])->findOrFail($hallid);
+        $hall = Halls::with(['additions', 'contacts', 'timeworks', 'responses'])->findOrFail($hallid);
 
         return view('halls.detail', compact('hall'));
     }

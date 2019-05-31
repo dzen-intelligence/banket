@@ -51,6 +51,7 @@ var app = new Vue({
                 value = value.substring(0, 93) + '...';
             }
 
+
             return value;
         }
     }

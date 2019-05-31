@@ -18,7 +18,8 @@
             <p class="subtitle text-primary">Описание завдения</p>
             <h1 class="h2 mb-5"> Дополнительная информация по заведению <span
                         class="text-muted float-right">Шаг 2</span></h1>
-            <form method="post" action="{{ route('accommodate.post_step3') }}" enctype="multipart/form-data">
+
+            <form method="post" action="{{ route('accommodate.post_step3') }}" enctype="multipart/form-data" class="dropzone1" id="my-dropzone">
                 {{ csrf_field() }}
 
                 <div class="row form-block">
@@ -121,14 +122,15 @@
                             {{--<p>Перетащите фотографии в эту зону или выберите из файлового архива</p>--}}
                             {{--</div>--}}
                             {{--</div>--}}
-                            <input name="preview_image" type="file"/>
+                            <input name="preview_image" id="dropzone" type="file" multiple/>
+                            {{--<div id="upload_header"></div>--}}
 
                         </div>
 
                         <div id="dropzoneTemplate" class="d-none">
                             <div class="dz-preview dz-file-preview">
                                 <div class="dz-image"><img data-dz-thumbnail="" alt=""
-                                                           src="https://d19m59y37dris4.cloudfront.net/directory/1-1/img/logo-square.svg">
+                                                           src="/d19m59y37dris4.cloudfront.net/directory/1-1/img/logo-square.svg">
                                 </div>
                                 <div class="dz-details">
                                     <div class="dz-filename"><span data-dz-name=""></span></div>
@@ -142,6 +144,7 @@
                                 <div class="dz-error-message"><span data-dz-errormessage=""></span></div>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
@@ -208,5 +211,21 @@
             </form>
         </div>
     </section>
+
+    <style>
+        #upload_header {
+            width: 100%;
+            background-color: #efefef;
+            min-height: 70px;
+        }
+    </style>
+
+    <script>
+        // var myDropzone = new Dropzone("#myDropzone", { url: "/next_step3"});
+        var dropzone = new Dropzone('#dropzone', { url: 'next_step3' });
+
+        console.log('work');
+
+    </script>
 
 @endsection

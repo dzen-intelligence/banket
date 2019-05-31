@@ -129,7 +129,7 @@
 <script src={{ url()->asset('/js/map-detail.js') }}></script>
 
 <!-- Dropzone.js-->
-<script src={{ url()->asset('/d19m59y37dris4.cloudfront.net/directory/1-1/vendor/dropzone/dropzone.js') }}></script>
+<script src={{ url()->asset('/js/dropzone.js') }}></script>
 <!-- Dropzone Init-->
 {{--<script src={{ url()->asset('/js/forms-dropzone.js') }}></script>--}}
 <script src="{{ url()->asset('/js/vue.min.js') }}"></script>

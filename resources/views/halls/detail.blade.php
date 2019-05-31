@@ -90,81 +90,38 @@
 
                     <div class="text-block">
                         <p class="subtitle text-sm text-primary">Отзывы </p>
-                        <h5 class="mb-4">Отзывы о нас </h5>
-                        <div class="media d-block d-sm-flex review">
-                            <div class="text-md-center mr-4 mr-xl-5"><img
-                                        src="./d19m59y37dris4.cloudfront.net/directory/1-1/img/avatar/avatar-8.jpg"
-                                        alt="Padmé Amidala" class="d-block avatar avatar-xl p-2 mb-2"><span
-                                        class="text-uppercase text-muted text-sm">Dec 2018</span></div>
-                            <div class="media-body">
-                                <h6 class="mt-2 mb-1">Padmé Amidala</h6>
-                                <div class="mb-2"><i class="fa fa-xs fa-star text-primary"></i><i
-                                            class="fa fa-xs fa-star text-primary"></i><i
-                                            class="fa fa-xs fa-star text-primary"></i><i
-                                            class="fa fa-xs fa-star text-primary"></i><i
-                                            class="fa fa-xs fa-star text-primary"></i>
+
+
+
+                        @if( count($hall->responses) > 0 )
+                            <h5 class="mb-4">Отзывы о нас </h5>
+
+                            @foreach($hall->responses as $response)
+
+                            <div class="media d-block d-sm-flex review">
+                                <div class="text-md-center mr-4 mr-xl-5"><img
+                                            src="./d19m59y37dris4.cloudfront.net/directory/1-1/img/avatar/avatar-8.jpg"
+                                            alt="{{ $response->author->name }}" class="d-block avatar avatar-xl p-2 mb-2"><span
+                                            class="text-uppercase text-muted text-sm">{{ $response->created_at->format('M Y') }}</span></div>
+                                <div class="media-body">
+                                    <h6 class="mt-2 mb-1">{{ $response->author->name }}</h6>
+                                    <div class="mb-2"><i class="fa fa-xs fa-star text-primary"></i><i
+                                                class="fa fa-xs fa-star text-primary"></i><i
+                                                class="fa fa-xs fa-star text-primary"></i><i
+                                                class="fa fa-xs fa-star text-primary"></i><i
+                                                class="fa fa-xs fa-star text-primary"></i>
+                                    </div>
+                                    <p class="text-muted text-sm">{{ $response->body }}</p>
                                 </div>
-                                <p class="text-muted text-sm">One morning, when Gregor Samsa woke from troubled dreams,
-                                    he found himself transformed in his bed into a horrible vermin. He lay on his
-                                    armour-like back, and if he lifted his head a little he could see his brown belly,
-                                    slightly domed and divided by arches into stiff sections </p>
                             </div>
-                        </div>
-                        <div class="media d-block d-sm-flex review">
-                            <div class="text-md-center mr-4 mr-xl-5"><img
-                                        src="./d19m59y37dris4.cloudfront.net/directory/1-1/img/avatar/avatar-2.jpg"
-                                        alt="Luke Skywalker" class="d-block avatar avatar-xl p-2 mb-2"><span
-                                        class="text-uppercase text-muted text-sm">Dec 2018</span></div>
-                            <div class="media-body">
-                                <h6 class="mt-2 mb-1">Luke Skywalker</h6>
-                                <div class="mb-2"><i class="fa fa-xs fa-star text-primary"></i><i
-                                            class="fa fa-xs fa-star text-primary"></i><i
-                                            class="fa fa-xs fa-star text-primary"></i><i
-                                            class="fa fa-xs fa-star text-primary"></i><i
-                                            class="fa fa-xs fa-star text-gray-200"></i>
-                                </div>
-                                <p class="text-muted text-sm">The bedding was hardly able to cover it and seemed ready
-                                    to slide off any moment. His many legs, pitifully thin compared with the size of the
-                                    rest of him, waved about helplessly as he looked. &quot;What's happened to me?&quot;
-                                    he thought. It wasn't a dream. </p>
-                            </div>
-                        </div>
-                        <div class="media d-block d-sm-flex review">
-                            <div class="text-md-center mr-4 mr-xl-5"><img
-                                        src="./d19m59y37dris4.cloudfront.net/directory/1-1/img/avatar/avatar-3.jpg"
-                                        alt="Princess Leia" class="d-block avatar avatar-xl p-2 mb-2"><span
-                                        class="text-uppercase text-muted text-sm">Dec 2018</span></div>
-                            <div class="media-body">
-                                <h6 class="mt-2 mb-1">Princess Leia</h6>
-                                <div class="mb-2"><i class="fa fa-xs fa-star text-primary"></i><i
-                                            class="fa fa-xs fa-star text-primary"></i><i
-                                            class="fa fa-xs fa-star text-primary"></i><i
-                                            class="fa fa-xs fa-star text-gray-200"></i><i
-                                            class="fa fa-xs fa-star text-gray-200"></i>
-                                </div>
-                                <p class="text-muted text-sm">His room, a proper human room although a little too small,
-                                    lay peacefully between its four familiar walls. A collection of textile samples lay
-                                    spread out on the table. </p>
-                            </div>
-                        </div>
-                        <div class="media d-block d-sm-flex review">
-                            <div class="text-md-center mr-4 mr-xl-5"><img
-                                        src="./d19m59y37dris4.cloudfront.net/directory/1-1/img/avatar/avatar-4.jpg"
-                                        alt="Jabba Hut" class="d-block avatar avatar-xl p-2 mb-2"><span
-                                        class="text-uppercase text-muted text-sm">Dec 2018</span></div>
-                            <div class="media-body">
-                                <h6 class="mt-2 mb-1">Jabba Hut</h6>
-                                <div class="mb-2"><i class="fa fa-xs fa-star text-primary"></i><i
-                                            class="fa fa-xs fa-star text-primary"></i><i
-                                            class="fa fa-xs fa-star text-primary"></i><i
-                                            class="fa fa-xs fa-star text-primary"></i><i
-                                            class="fa fa-xs fa-star text-primary"></i>
-                                </div>
-                                <p class="text-muted text-sm">Samsa was a travelling salesman - and above it there hung
-                                    a picture that he had recently cut out of an illustrated magazine and housed in a
-                                    nice, gilded frame. </p>
-                            </div>
-                        </div>
+                            @endforeach
+
+                        @else
+                            <h5 class="mb-4">Отзывов нет</h5>
+
+                        @endif
+
+
                         <div class="py-5">
                             <button type="button" data-toggle="collapse" data-target="#leaveReview"
                                     aria-expanded="false" aria-controls="leaveReview" class="btn btn-outline-primary">
@@ -172,7 +129,9 @@
                             </button>
                             <div id="leaveReview" class="collapse mt-4">
                                 <h5 class="mb-4">Оставить отзыв</h5>
-                                <form id="contact-form" method="get" action="#" class="form">
+                                <form id="contact-form" method="post" action="{{ route('add_response')  }}" class="form">
+                                    {{ csrf_field() }}
+
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
@@ -195,8 +154,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="email" class="form-label">Ваш телефон *</label>
-                                        <input type="email" name="email" id="email" placeholder="Введите ваш телефон"
+                                        <label for="phone" class="form-label">Ваш телефон *</label>
+                                        <input type="text" name="phone" id="phone" placeholder="Введите ваш телефон"
                                                required="required" class="form-control">
                                         <small id="propertyTypeHelp" class="form-text text-muted">На вацап отправляем
                                             ссылку или код для подтверждения
@@ -205,11 +164,22 @@
                                     <div class="form-group">
                                         <label for="review" class="form-label">Ваш отзыв *</label>
                                         <textarea rows="4" name="review" id="review"
-                                                  placeholder="Опишите данное заведение" required="required"
+                                                  placeholder="Опишите данное заведение"
                                                   class="form-control"></textarea>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Разместить отзыв</button>
                                 </form>
+
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+
                             </div>
                         </div>
                     </div>

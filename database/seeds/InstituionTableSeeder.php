@@ -17,21 +17,16 @@ class InstituionTableSeeder extends Seeder
 
     private function insertInstituions()
     {
-        DB::table('instituions')->insert([
-            'restaurateur_id' => 1
-        ]);
 
         DB::table('instituions')->insert([
-            'restaurateur_id' => 2
+            'restaurateur_id' => 1,
+            'name' => 'Первое заведение',
+            'state' => 'совеский',
+            'city' => 'Казань',
+            'lat' => '55.8203',
+            'lon' => '49.1778',
         ]);
 
-        DB::table('instituions')->insert([
-            'restaurateur_id' => 3
-        ]);
-
-        DB::table('instituions')->insert([
-            'restaurateur_id' => 4
-        ]);
 
         DB::table('additions')->insert([
             'name' => 'Водка'
